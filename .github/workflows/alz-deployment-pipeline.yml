@@ -124,8 +124,8 @@ jobs:
           scope: managementgroup
           managementGroupId: ${{ env.ManagementGroupPrefix }}
           region: ${{ env.Location }}
-          template: infra-as-code/bicep/modules/subscriptionPlacement/subscriptionPlacement.bicep
-          parameters: infra-as-code/bicep/modules/subscriptionPlacement/parameters/subscriptionPlacement.parameters.all.json
+          template: infra-as-code/bicep/orchestration/subPlacementAll/subPlacementAll.bicep
+          parameters: infra-as-code/bicep/orchestration/subPlacementAll/parameters/subPlacementAll.parameters.all.json
           deploymentName: create_subscription_placement-${{ env.runNumber }}
           failOnStdErr: false
 
