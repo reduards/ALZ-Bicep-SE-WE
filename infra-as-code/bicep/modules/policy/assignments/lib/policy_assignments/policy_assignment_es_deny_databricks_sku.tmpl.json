@@ -8,7 +8,7 @@
     "notScopes": [],
     "parameters": {
       "effect": {
-        "value": "Deny"
+        "value": "Audit"
       }
     },
     "policyDefinitionId": "${modManagementGroups.outputs.outTopLevelManagementGroupId}/providers/Microsoft.Authorization/policyDefinitions/Deny-Databricks-Sku",
