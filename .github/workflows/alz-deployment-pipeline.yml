@@ -159,7 +159,7 @@ jobs:
         with:
           # subscriptionId: ${{ env.SpokeNetworkSubId }}
           # resourceGroupName: ${{ env.SpokeNetworkResourceGroupName }}
-          template: infra-as-code/bicep/modules/spokeNetworking/spokeNetworking.bicep
-          parameters: infra-as-code/bicep/modules/spokeNetworking/parameters/spokeNetworking.parameters.all.json
+          template: infra-as-code/bicep/orchestration/hubPeeredSpoke/hubPeeredSpoke.bicep
+          parameters: infra-as-code/bicep/orchestration/hubPeeredSpoke/hubPeeredSpoke.parameters.all.json
           deploymentName: create_spoke_network-${{ env.runNumber }}
           failOnStdErr: false
