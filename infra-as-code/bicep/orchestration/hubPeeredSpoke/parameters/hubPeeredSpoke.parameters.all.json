@@ -9,16 +9,16 @@
         "value": "alz"
       },
       "parPeeredVnetSubscriptionId": {
-        "value": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        "value": "94eae67c-163d-490b-9392-82ad9db4b204"
       },
       "parPeeredVnetSubscriptionMgPlacement": {
-        "value": "alz-platform-connectivity"
+        "value": "alz-platform-management"
       },
       "parDdosProtectionPlanId": {
         "value": ""
       },
       "parSpokeNetworkName": {
-        "value": "vnet-spoke"
+        "value": "vnet-management"
       },
       "parSpokeNetworkAddressPrefix": {
         "value": "10.202.0.0/24"
@@ -36,7 +36,7 @@
         "value": "rtb-spoke-to-hub"
       },
       "parHubVirtualNetworkId": {
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/alz-westeurope-hub-networking/providers/Microsoft.Network/virtualNetworks/alz-hub-westeurope"
+        "value": "/subscriptions/6591fcfd-c075-4910-a064-0a13533ee3c3/resourceGroups/Hub_Networking_POC/providers/Microsoft.Network/virtualNetworks/alz-hub-westeurope"
       },
       "parAllowSpokeForwardedTraffic": {
         "value": false
@@ -46,7 +46,7 @@
       },
       "parTags": {
         "value": {
-          "Environment": "POC"
+          "Environment": "management-sub"
         }
       },
       "parTelemetryOptOut": {
