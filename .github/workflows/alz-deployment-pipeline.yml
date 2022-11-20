@@ -161,6 +161,6 @@ jobs:
           managementGroupId: ${{ env.ManagementGroupPrefix }}
           region: ${{ env.Location }}
           template: infra-as-code/bicep/orchestration/hubPeeredSpoke/hubPeeredSpoke.bicep
-          parameters: infra-as-code/bicep/orchestration/hubPeeredSpoke/hubPeeredSpoke.parameters.all.json
+          parameters: infra-as-code/bicep/orchestration/hubPeeredSpoke/parameters/hubPeeredSpoke.parameters.all.json
           deploymentName: create_spoke_network-${{ env.runNumber }}
           failOnStdErr: false
