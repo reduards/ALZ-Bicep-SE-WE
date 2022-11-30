@@ -6,7 +6,7 @@
             "value": "alz"
         },
         "parLogAnalyticsWorkSpaceAndAutomationAccountLocation": {
-            "value": "westeurope"
+            "value": "swedencentral"
         },
         "parLogAnalyticsWorkspaceResourceId": {
             "value": "/subscriptions/94eae67c-163d-490b-9392-82ad9db4b204/resourceGroups/alz-logging/providers/Microsoft.OperationalInsights/workspaces/alz-log-analytics"
