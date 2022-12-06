@@ -83,6 +83,11 @@ var varPolicyAssignmentDenySubnetWithoutUdr = {
 	libDefinition: loadJsonContent('../../policy/assignments/lib/policy_assignments/policy_assignment_es_deny_subnet_without_udr.tmpl.json')
 }
 
+var varPolicyAssignmentDenyPrivateDnsZone = {
+	definitionId: '${modManagementGroups.outputs.outTopLevelManagementGroupId}/providers/Microsoft.Authorization/policyDefinitions/Deny-Private-DNS-Zones'
+	libDefinition: loadJsonContent('../../policy/assignments/lib/policy_assignments/policy_assignment_es_deny_private_dns_zone.tmpl.json')
+}
+
 var varPolicyAssignmentDeployAKSPolicy = {
 	definitionId: '/providers/Microsoft.Authorization/policyDefinitions/a8eff44f-8c92-45c3-a3fb-9880802d67a7'
 	libDefinition: loadJsonContent('../../policy/assignments/lib/policy_assignments/policy_assignment_es_deploy_aks_policy.tmpl.json')

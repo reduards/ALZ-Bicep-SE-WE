@@ -56,6 +56,7 @@ var varModuleDeploymentNames = {
   modPolicyAssignmentLzsDenyPublicIp: take('${varDeploymentNameWrappers.basePrefix}-polAssi-denyPublicIP-corp-${varDeploymentNameWrappers.baseSuffixTenantAndManagementGroup}', 64)
   modPolicyAssignmentLzsDenyRdpFromInternet: take('${varDeploymentNameWrappers.basePrefix}-polAssi-denyRDPFromInet-lz-${varDeploymentNameWrappers.baseSuffixTenantAndManagementGroup}', 64)
   modPolicyAssignmentLzsDenySubnetWithoutNsg: take('${varDeploymentNameWrappers.basePrefix}-polAssi-denySubnetNoNSG-lz-${varDeploymentNameWrappers.baseSuffixTenantAndManagementGroup}', 64)
+  modPolicyAssignmentLzsDenyPrivateDnsZone: take('${varDeploymentNameWrappers.basePrefix}-polAssi-denyPrivateDnsZones-lz-${varDeploymentNameWrappers.baseSuffixTenantAndManagementGroup}', 64)
   modPolicyAssignmentLzsDeployVmBackup: take('${varDeploymentNameWrappers.basePrefix}-polAssi-deployVMBackup-lz-${varDeploymentNameWrappers.baseSuffixTenantAndManagementGroup}', 64)
   modPolicyAssignmentLzsEnableDdosVnet: take('${varDeploymentNameWrappers.basePrefix}-polAssi-enableDDoSVNET-lz-${varDeploymentNameWrappers.baseSuffixTenantAndManagementGroup}', 64)
   modPolicyAssignmentLzsDenyStorageHttp: take('${varDeploymentNameWrappers.basePrefix}-polAssi-denyStorageHttp-lz-${varDeploymentNameWrappers.baseSuffixTenantAndManagementGroup}', 64)
@@ -133,6 +134,11 @@ var varPolicyAssignmentDenyStoragehttp = {
 var varPolicyAssignmentDenySubnetWithoutNsg = {
   definitionId: '${varTopLevelManagementGroupResourceId}/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-Nsg'
   libDefinition: loadJsonContent('../../../policy/assignments/lib/policy_assignments/policy_assignment_es_deny_subnet_without_nsg.tmpl.json')
+}
+
+var varPolicyAssignmentDenyPrivateDnsZone = {
+	definitionId: '${varTopLevelManagementGroupResourceId}/providers/Microsoft.Authorization/policyDefinitions/Deny-Private-DNS-Zones'
+	libDefinition: loadJsonContent('../../../policy/assignments/lib/policy_assignments/policy_assignment_es_deny_private_dns_zone.tmpl.json')
 }
 
 var varPolicyAssignmentDeployAKSPolicy = {
@@ -450,6 +456,22 @@ module modPolicyAssignmentIdentDenySubnetWithoutNsg '../../../policy/assignments
     parPolicyAssignmentParameters: varPolicyAssignmentDenySubnetWithoutNsg.libDefinition.properties.parameters
     parPolicyAssignmentIdentityType: varPolicyAssignmentDenySubnetWithoutNsg.libDefinition.identity.type
     parPolicyAssignmentEnforcementMode: varPolicyAssignmentDenySubnetWithoutNsg.libDefinition.properties.enforcementMode
+    parTelemetryOptOut: parTelemetryOptOut
+  }
+}
+
+// Module - Policy Assignment - Deny-Private-DNS-Zones
+module modPolicyAssignmentLzsDenyPrivateDnsZone '../../../policy/assignments/policyAssignmentManagementGroup.bicep' = {
+  scope: managementGroup(varManagementGroupIds.landingZones)
+  name: varModuleDeploymentNames.modPolicyAssignmentLzsDenyPrivateDnsZone
+  params: {
+    parPolicyAssignmentDefinitionId: varPolicyAssignmentDenyPrivateDnsZone.definitionId
+    parPolicyAssignmentName: varPolicyAssignmentDenyPrivateDnsZone.libDefinition.name
+    parPolicyAssignmentDisplayName: varPolicyAssignmentDenyPrivateDnsZone.libDefinition.properties.displayName
+    parPolicyAssignmentDescription: varPolicyAssignmentDenyPrivateDnsZone.libDefinition.properties.description
+    parPolicyAssignmentParameters: varPolicyAssignmentDenyPrivateDnsZone.libDefinition.properties.parameters
+    parPolicyAssignmentIdentityType: varPolicyAssignmentDenyPrivateDnsZone.libDefinition.identity.type
+    parPolicyAssignmentEnforcementMode: varPolicyAssignmentDenyPrivateDnsZone.libDefinition.properties.enforcementMode
     parTelemetryOptOut: parTelemetryOptOut
   }
 }
