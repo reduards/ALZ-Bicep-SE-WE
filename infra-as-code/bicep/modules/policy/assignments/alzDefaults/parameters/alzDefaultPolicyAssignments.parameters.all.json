@@ -21,7 +21,7 @@
             "value": "rasmuseduards@gmail.com"
         },
         "parDdosProtectionPlanId": {
-            "value": "/subscriptions/6591fcfd-c075-4910-a064-0a13533ee3c3/resourceGroups/Hub_Networking_POC/providers/Microsoft.Network/ddosProtectionPlans/alz-ddos-plan"
+            "value": ""
         },
         "parTelemetryOptOut": {
             "value": false
